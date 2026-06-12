@@ -14,10 +14,16 @@ def retrieve(query, k=3):
     index, chunks = load_vector_store()
 
     query_embedding = model.encode([query])
-    distances, indices = index.search(query_embedding,k)
+    distances, indices = index.search(query_embedding,k)  # allows multiple query search
 
     results = []
-    for idx in indices[0]:
-        results.append(chunks[idx])
+    seen = set()
+    for idx in indices[0]:          # indices[0] - 1st query
+        if idx not in seen:
+            results.append(chunks[idx])
+            seen.add(idx)
+        if idx+1 < len(chunks) and idx+1 not in seen:
+            results.append(chunks[idx+1])
+            seen.add(idx+1)
 
     return results

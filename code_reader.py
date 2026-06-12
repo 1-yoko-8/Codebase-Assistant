@@ -22,11 +22,8 @@ def load_code_files(repo_path):
     for root, dirs, files in os.walk(repo_path):    # refer notes
 
         for file in files:
-
             if file.endswith(SUPPORTED_EXTENSIONS):
-
                 file_path = os.path.join(root, file)
-
                 try:
                     with open(
                         file_path,

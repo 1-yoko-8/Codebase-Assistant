@@ -9,29 +9,33 @@ genai.configure(
     api_key=os.getenv("GEMINI_API_KEY")
 )
 
-model = genai.GenerativeModel("gemini-2.5-flash")
+model = genai.GenerativeModel("gemini-3.1-flash-lite")
 
 def answer_question(question):
 
     docs = retrieve(question,k=5)
 
-    context = "\n\n".join(doc.page_content for doc in docs)
+    context = "\n\n".join(
+        f"FILE: {doc.metadata['source']}\n{doc.page_content}"
+        for doc in docs
+    )
 
     prompt = f"""
-You are a software engineering assistant.
+    You are a senior software engineering assistant.
 
-Answer ONLY using the provided code context.
+    INSTRUCTIONS:
+    - Answer ONLY using the provided code context.
+    - If the answer is not in the context, say:
+      "I could not find that information in the repository."
+    - Explain step-by-step in a clear and simple way.
+    - Refer to file names or functions when relevant.
 
-If the answer cannot be found,
-say:
-"I could not find that information in the repository."
+    CONTEXT:
+    {context}
 
-Context:
-{context}
-
-Question:
-{question}
-"""
+    QUESTION:
+    {question}
+    """
 
     response = model.generate_content(prompt)
     return response.text, docs
