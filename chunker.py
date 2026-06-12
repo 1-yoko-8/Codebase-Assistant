@@ -32,6 +32,7 @@ def create_chunks(repo_path):
     docs = load_code_files(repo_path)
 
     chunks = []
+    global_id = 0
 
     for doc in docs:
         file_path = doc["path"]
@@ -44,6 +45,14 @@ def create_chunks(repo_path):
             metadatas=[{"source": file_path}]
         )
 
-        chunks.extend(split_docs)
+        for i, chunk in enumerate(split_docs):
+            chunk.metadata.update({
+                "chunk_id": global_id,
+                "file_chunk_id": i,   # order inside file
+                "source": file_path
+            })
+
+            chunks.append(chunk)
+            global_id += 1
 
     return chunks

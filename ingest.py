@@ -17,6 +17,3 @@ def clone_repo(repo_url):
 if __name__ == "__main__":
     repo_url = input("Enter GitHub repository URL: ")
     clone_repo(repo_url)
-
-# Testing
-# clone_repo("https://github.com/1-yoko-8/electiontrackwebsitebackend.git")
