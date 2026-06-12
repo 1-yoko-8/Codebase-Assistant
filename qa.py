@@ -13,7 +13,7 @@ model = genai.GenerativeModel("gemini-3.1-flash-lite")
 
 def answer_question(question):
 
-    docs = retrieve(question,k=3)
+    docs = retrieve(question,k=5)
 
     context = "\n\n".join(
         f"FILE: {doc.metadata['source']}\n{doc.page_content}"
