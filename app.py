@@ -17,7 +17,7 @@ if st.button("Ask"):
     for doc in docs:
 
         st.code(
-            doc.page_content[:500]
+            doc.page_content[:]
         )
 
         st.caption(

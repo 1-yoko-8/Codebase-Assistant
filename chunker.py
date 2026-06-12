@@ -18,7 +18,7 @@ def get_splitter(file_ext: str):
     if lang:
         return RecursiveCharacterTextSplitter.from_language(
             language=lang,
-            chunk_size=1500,
+            chunk_size=1000,
             chunk_overlap=100,
         )
 
