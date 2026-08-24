@@ -95,16 +95,6 @@ streamlit run app.py
 3. Click **Ask**.
 4. The app displays the generated answer, followed by the source code snippets and file paths it was based on.
 
-## Screenshots
-
-<!-- Add screenshots below -->
-
-**Main Q&A interface**
-`[screenshot placeholder]`
-
-**Example question and answer with sources**
-`[screenshot placeholder]`
-
 ## Limitations / Current Considerations
 
 - Only one repository can be indexed at a time; re-running `ingest.py` overwrites the previously cloned repo (`repos/project`).
