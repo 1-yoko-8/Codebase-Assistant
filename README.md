@@ -47,7 +47,7 @@ Codebase-Assistant/
 ├── qa.py                  # Generates answers using Gemini
 ├── requirements.txt       # Python dependencies
 └── .env.example           # Environment variable template
-
+```
 
 ## Prerequisites
 
