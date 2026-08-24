@@ -55,7 +55,7 @@ Codebase-Assistant/
 
 ```bash
 git clone <this-repository-url>
-cd Codebase-Assistant-main
+cd Codebase-Assistant
 python -m venv venv
 source venv/bin/activate      # Windows: venv\Scripts\activate
 pip install -r requirements.txt
