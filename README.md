@@ -34,17 +34,19 @@ A local Retrieval-Augmented Generation (RAG) tool that lets you ask natural-lang
 These two flows are independent — the index must be built before the app can answer questions.
 
 ## Project Structure
+
+```text
 Codebase-Assistant/
-├── app.py # Streamlit UI entry point
-├── ingest.py # Clones a GitHub repo into repos/project
-├── build_index.py # Runs chunking + vector store creation
-├── chunker.py # Splits source files into chunks
-├── code_reader.py # Loads supported source files from a repo
-├── vector_store.py # Creates/persists the FAISS index and chunk metadata
-├── retriever.py # Loads the index and retrieves relevant chunks
-├── qa.py # Builds the prompt and calls the Gemini API
-├── requirements.txt
-└── .env.example
+├── app.py                 # Streamlit UI entry point
+├── ingest.py              # Clones a GitHub repository
+├── build_index.py         # Builds the vector index
+├── chunker.py             # Splits source files into chunks
+├── code_reader.py         # Loads supported source files
+├── vector_store.py        # Creates and persists the FAISS index
+├── retriever.py           # Retrieves relevant code chunks
+├── qa.py                  # Generates answers using Gemini
+├── requirements.txt       # Python dependencies
+└── .env.example           # Environment variable template
 
 ## Prerequisites
 
