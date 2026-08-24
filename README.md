@@ -48,6 +48,7 @@ Codebase-Assistant/
 ├── requirements.txt       # Python dependencies
 └── .env.example           # Environment variable template
 
+
 ## Prerequisites
 
 - Git installed and available on your PATH
